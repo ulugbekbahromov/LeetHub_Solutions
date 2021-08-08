@@ -10,13 +10,14 @@ class Solution {
             }
         }
         
+        // making str lowercase/uppercase
         str = str.toLowerCase();
         
         int first_index = 0;
         int last_index = str.length() - 1;
         
         while (first_index <= last_index) {
-            
+            // loop through from two sides
             if (str.charAt(first_index) != str.charAt(last_index)) {
                 return false;
             }
@@ -28,3 +29,5 @@ class Solution {
         return true;
     }
 }
+
+// Two-pointer method
