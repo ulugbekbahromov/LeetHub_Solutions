@@ -10,22 +10,20 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        
-        if (head == null)
-            return head;
-        
-        ListNode prev = null;
-        ListNode cur = head;
-        
-        while (cur != null) {
-            ListNode next = cur.next;
-            cur.next = prev;
-            prev = cur;
-            cur = next;
+        return reverse(head, null);
+    }
+    
+    private ListNode reverse(ListNode head, ListNode newHead) {
+        if (head == null) {
+            return newHead;
         }
         
-        return prev;
+        ListNode next = head.next;
+        head.next = newHead;
+        newHead = head;
+        head = next;
+        
+        return reverse(head, newHead);
     }
 }
-
-// O(n), iterative approach
+// Recursive approach
