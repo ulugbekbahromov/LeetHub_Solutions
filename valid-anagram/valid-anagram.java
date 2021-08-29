@@ -10,13 +10,19 @@ class Solution {
             return false;
         }
         
-        char[] sChar = s.toCharArray();
-        char[] tChar = t.toCharArray();
+        int[] alphabet = new int[26];
         
-        Arrays.sort(sChar);
-        Arrays.sort(tChar);
+        for (int i = 0; i < s.length(); i++) {
+            alphabet[s.charAt(i) - 'a']++;
+            alphabet[t.charAt(i) - 'a']--;
+        }
         
-        return Arrays.equals(sChar, tChar);
+        for (int letter : alphabet) {
+            if (letter != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
