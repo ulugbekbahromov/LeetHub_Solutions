@@ -1,11 +1,15 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        if (nums.length == 1 || nums.length == 0) { return false; }
+        int len = nums.length;
+        
+        if (len == 1 || len == 0) {
+            return false;
+        }
         
         Arrays.sort(nums);
         
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1]) {
+        for (int i = 0; i < len - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
         }
@@ -13,4 +17,3 @@ class Solution {
         return false;
     }
 }
-// O(nlogn), using Arrays.sort() built-in function
