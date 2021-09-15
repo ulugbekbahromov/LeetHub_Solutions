@@ -3,10 +3,9 @@ class Solution {
         
         int low = 0;
         int high = nums.length - 1;
-        int mid;
         
         while (low <= high) {
-            mid = low + (high - low) / 2;
+            int mid = low + (high - low) / 2;
             if (nums[mid] == target)
                 return mid;
             else if (nums[mid] < target)
@@ -18,3 +17,5 @@ class Solution {
         return -1;
     }
 }
+
+// Classical Bnary Search - O(logn) time complexity
