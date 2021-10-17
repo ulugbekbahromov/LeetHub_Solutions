@@ -1,15 +1,18 @@
 class Solution {
     public void reverseString(char[] s) {
-        int first = 0;
-        int last = s.length-1;
+        int left = 0;
+        int right = s.length-1;
         
-        while (first < last) {
-            char temp = s[first];
-            s[first] = s[last];
-            s[last] = temp;
+        while (left < right) {
+            char temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
             
-            first++;
-            last--;
+            left++;
+            right--;
         }
     }
 }
+// Two-Pointer approach
+// Time Complexity - O(n)
+// Space Complexity - O(1)
