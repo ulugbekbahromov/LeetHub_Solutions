@@ -1,19 +1,17 @@
 class Solution {
     public int maxSubArray(int[] nums) {
         int maxSum = nums[0];
-        int curSum = maxSum;
+        int curSum = 0;
         
-        for (int i = 1; i < nums.length; i++) {
-            if (curSum < 0) {
-                curSum = nums[i];
-            } else {
-                curSum += nums[i];
-            }
-            maxSum = Math.max(maxSum, curSum);
+        for (int num : nums) {
+            curSum = Math.max(num, curSum + num);
+            
+            if (curSum > maxSum)
+                maxSum = curSum;
         }
-        
+               
         return maxSum;
     }
 }
-
-// Kadane's Algo, O(n)
+// Kadane's Algorithm
+// O(n)nums - time, O(1) - space
