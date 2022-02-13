@@ -10,6 +10,5 @@ class Solution:
         while temp>0:
             result = result*10 + temp%10
             temp //= 10
-            print(result, " ", temp)
         
         return result == x
