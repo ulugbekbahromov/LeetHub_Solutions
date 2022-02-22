@@ -2,11 +2,6 @@
 select firstName, lastName, city, state
 from Person as p
 left join Address as a
-on p.personId = a.personId
-union
-select firstName, lastName, city, state
-from Person as p
-left join Address as a
 on p.personId = a.personId;
 
-# using union
+# using left join
