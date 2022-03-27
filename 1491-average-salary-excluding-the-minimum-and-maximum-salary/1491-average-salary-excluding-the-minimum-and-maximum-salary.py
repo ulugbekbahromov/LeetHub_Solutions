@@ -1,6 +1,5 @@
 class Solution:
     def average(self, salary: List[int]) -> float:
-        salary.pop(salary.index(max(salary)))
-        salary.pop(salary.index(min(salary)))
+        salary = sorted(salary)[1:len(salary)-1]
         return sum(salary) / len(salary)
-    # interesting sol
+    # interesting list comprehension sol
