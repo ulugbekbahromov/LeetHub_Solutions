@@ -1,4 +1,4 @@
 # Write your MySQL query statement below
-update salary
-set sex =
-            IF (sex = 'm', 'f', 'm');
+update Salary
+set sex = if(sex = 'm', 'f', 'm')
+where sex in('m', 'f');
