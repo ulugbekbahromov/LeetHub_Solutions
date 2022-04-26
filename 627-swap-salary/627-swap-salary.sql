@@ -1,4 +1,3 @@
 # Write your MySQL query statement below
 update Salary
-set sex = if(sex = 'm', 'f', 'm')
-where sex in('m', 'f');
+set sex = char(ascii('m') ^ ascii('f') ^ ascii(sex));
