@@ -1,13 +1,9 @@
 # Write your MySQL query statement below
-select name
-from salesperson as s
-where s.sales_id not in (
-            select s.sales_id
-            from salesperson as s
-            join orders as o
-            on s.sales_id = o.sales_id
-            join company as c
-            on o.com_id = c.com_id
-            where c.name = 'RED'
-            
-);
+select s.name
+from orders o
+join company c
+on o.com_id = c.com_id
+and c.name = 'RED'
+right join salesperson s
+on o.sales_id = s.sales_id
+where o.sales_id is null;
