@@ -1,16 +1,15 @@
-with Total as (
-    select 
-        distinct account,
-        sum(amount) over(partition by account) as balance
-    from Transactions
+with temp as (
+    select t.account, u.name, sum(amount) as balance
+    from Transactions as t
+    inner join Users as u
+    on t.account = u.account
+    group by t.account
 )
 
 select 
     name, 
     balance
-from Users as u
-inner join Total as t
-on u.account = t.account
+from temp
 where balance > 10000;
 
-# solution using windows function
+# solution using cte
