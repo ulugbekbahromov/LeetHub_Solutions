@@ -1,8 +1,16 @@
-select u.name as name, sum(t.amount) as balance
-from Users as u
-inner join Transactions as t
-on u.account = t.account
-group by u.name
-having sum(t.amount) > 10000;
+with Total as (
+    select 
+        distinct account,
+        sum(amount) over(partition by account) as balance
+    from Transactions
+)
 
-# simplest solution came to head first
+select 
+    name, 
+    balance
+from Users as u
+inner join Total as t
+on u.account = t.account
+where balance > 10000;
+
+# solution using windows function
