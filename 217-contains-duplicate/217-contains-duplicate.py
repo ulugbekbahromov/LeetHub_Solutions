@@ -1,7 +1,14 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        numSet = set(nums)
+        length = len(nums)
+        if length < 2:
+            return False
         
-        return len(nums) != len(numSet)
+        nums.sort()
+        for i in range(length-1):
+            if nums[i] == nums[i+1]:
+                return True
+            
+        return False
     
-# solution with set
+# solution with sorting
