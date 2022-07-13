@@ -1,2 +1,2 @@
 update Salary
-set sex = if(sex = 'm', 'f', 'm')
+set sex = replace('fm', sex, '')
