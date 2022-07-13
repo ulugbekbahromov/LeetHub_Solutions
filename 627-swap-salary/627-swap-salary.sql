@@ -1,2 +1,2 @@
 update Salary
-set sex = case when sex = 'f' then 'm' else 'f' end
+set sex = if(sex = 'm', 'f', 'm')
