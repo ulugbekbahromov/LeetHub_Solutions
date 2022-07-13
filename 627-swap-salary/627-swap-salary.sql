@@ -1,2 +1,2 @@
 update Salary
-set sex = replace('fm', sex, '')
+set sex = char(ascii('f') ^ ascii('m') ^ ascii(sex))
