@@ -1,6 +1,5 @@
-# Write your MySQL query statement below
 select
     user_id,
-    concat(ucase(left(name, 1)), lcase(right(name, length(name)-1))) as name
+    concat(upper(substring(name, 1, 1)), lower(substring(name, 2))) as name
 from Users
-order by user_id asc;
+order by user_id;
